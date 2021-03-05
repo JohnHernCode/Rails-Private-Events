@@ -8,9 +8,22 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <%= stylesheet_link_tag "https://pro.fontawesome.com/releases/v5.10.0/css/all.css" %> 
   </head>
 
   <body>
+    <% if flash.now[:alert] %>
+    <div class='notification is-danger global-notification'>
+      <p class='alert'><%= alert %> </p>
+    </div>
+    <% elsif flash.now[:notice] %>
+    <div class='notification is-info global-notification'>
+      <p class='notice'><%= notice %> </p>
+    </div>
+    <%else%>
+    <%end%>
+    <%= render :partial => 'layouts/navbar' %>
     <%= yield %>
   </body>
 </html>

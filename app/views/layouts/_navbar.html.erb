@@ -1,4 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <%= link_to "Home", root_path %>
   
   <% if logged_in? %>
   <span style="padding-right: 4px;">Hi! "<%= current_user.username.upcase %>"</span>

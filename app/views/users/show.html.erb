@@ -3,7 +3,7 @@
 
   <% @user.created_events.each do |event|%>
   <li>
-    <span><%= event.description %></span>
+    <span><%= link_to event.description, event %></span>
     <span><%= event.date %></span>
   </li>
   <% end %>  

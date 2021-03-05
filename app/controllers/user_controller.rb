@@ -1,5 +1,6 @@
 class UserController < ApplicationController
   def new
+    @user = User.new
   end
 
   def show
@@ -13,4 +14,11 @@ class UserController < ApplicationController
     else
     end
   end
+
+  private
+
+  def user_params
+    params.permit(:username)
+  end
+
 end

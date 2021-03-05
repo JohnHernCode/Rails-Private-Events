@@ -1,6 +1,4 @@
 class EventsController < ApplicationController
-  scope :past, -> { where('date < Time.now') }
-  scope :future, -> { where('date > Time.now') }
 
   def index
     @events = Event.all

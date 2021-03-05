@@ -5,8 +5,9 @@
 <span><%= @event.description %></span>
 <span><%= @event.date %></span>
 
-if logged in 
-the button
-end
+<% if logged_in? %>
+<%= button_to 'Attend', action: :attend %>
+
+ <%end%>
 
 

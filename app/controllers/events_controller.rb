@@ -22,6 +22,16 @@ class EventsController < ApplicationController
       end
   end
 
+  def attend
+    current_user.attended_events << Event.find(params[:id])
+    if current_user.save
+      flash[:notice] = "You are now attending the event"
+    else
+      flash[:alert] = "Event didn't save"
+    end
+
+  end
+
   private
 
   def event_params

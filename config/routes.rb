@@ -10,7 +10,10 @@ Rails.application.routes.draw do
   resources :events, only: [:new, :create, :show]
   get 'event', to: 'events#new'
   post 'event', to: 'events#create'
-  
+
+  resources :events do
+    post 'attend', on: :member
+  end
 
   root 'home#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

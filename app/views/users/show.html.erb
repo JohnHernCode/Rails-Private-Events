@@ -1,6 +1,7 @@
 
-<ul>
+<h3>Events I Created</h3>
 
+<ul>
   <% @user.created_events.each do |event|%>
   <li>
     <span><%= link_to event.description, event %></span>
@@ -9,3 +10,24 @@
   <% end %>  
  </ul>
 
+ <h3>Events I am attending</h3>
+
+ <ul>
+  <% @user.attended_events.future.each do |event|%>
+  <li>
+    <span><%= link_to event.description, event %></span>
+    <span><%= event.date %></span>
+  </li>
+  <% end %>  
+ </ul>
+
+ <h3>Events I already attended</h3>
+
+ <ul>
+  <% @user.attended_events.past.each do |event|%>
+  <li>
+    <span><%= link_to event.description, event %></span>
+    <span><%= event.date %></span>
+  </li>
+  <% end %>  
+ </ul>

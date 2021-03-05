@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  scope :past, -> { where('date < Time.now') }
+  scope :future, -> { where('date > Time.now') }
 
   def index
     @events = Event.all
@@ -26,10 +28,11 @@ class EventsController < ApplicationController
     current_user.attended_events << Event.find(params[:id])
     if current_user.save
       flash[:notice] = "You are now attending the event"
+      redirect_to show_path
     else
       flash[:alert] = "Event didn't save"
+      redirect_to show_path
     end
-
   end
 
   private

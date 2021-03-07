@@ -58,5 +58,6 @@ group :test do
   gem 'webdrivers'
 end
 
-gem 'rubocop', '~>0.81.0'
+gem 'rubocop', '~> 1.11'
+
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

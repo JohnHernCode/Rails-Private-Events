@@ -1,5 +1,4 @@
 class EventsController < ApplicationController
-
   def index
     @events = Event.all
   end
@@ -15,17 +14,17 @@ class EventsController < ApplicationController
 
   def create
     @event = current_user.created_events.build(event_params)
-      if @event.save
-        redirect_to show_path
-      else
-        flash.now[:alert] = 'Event was not built'
-      end
+    if @event.save
+      redirect_to show_path
+    else
+      flash.now[:alert] = 'Event was not built'
+    end
   end
 
   def attend
     current_user.attended_events << Event.find(params[:id])
     if current_user.save
-      flash[:notice] = "You are now attending the event"
+      flash[:notice] = 'You are now attending the event'
       redirect_to show_path
     else
       flash[:alert] = "Event didn't save"
@@ -38,5 +37,4 @@ class EventsController < ApplicationController
   def event_params
     params.permit(:description, :date)
   end
-
 end

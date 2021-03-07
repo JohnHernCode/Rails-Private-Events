@@ -28,7 +28,7 @@ class EventsController < ApplicationController
       redirect_to show_path
     else
       flash[:alert] = "Event didn't save"
-      redirect_to show_path
+      # redirect_to show_path
     end
   end
 

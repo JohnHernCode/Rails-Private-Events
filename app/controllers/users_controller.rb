@@ -5,11 +5,11 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
-    @created_events = current_user.events
+    @created_events = current_user.created_events
     @created_events_upcoming = current_user.created_events.future.order('created_at DESC')
     @created_events_past = current_user.created_events.past.order('created_at DESC')
-    @attended_events_upcoming = current_user.attended_events.future('created_at DESC')
-    @attended_events_past = current_user.attended_events.past('created_at DESC')
+    @attended_events_upcoming = current_user.attended_events.future.order('created_at DESC')
+    @attended_events_past = current_user.attended_events.past.order('created_at DESC')
   end
 
   def create

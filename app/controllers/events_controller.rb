@@ -1,8 +1,8 @@
 class EventsController < ApplicationController
   def index
     @events = Event.all
-    @upcoming_events = Event.future.order('created_at DESC')
-    @past_events = Event.past.order('created_at DESC')
+    @upcoming_events = Event.future.order("created_at DESC")
+    @past_events = Event.past.order("created_at DESC")
   end
 
   def show
@@ -19,14 +19,14 @@ class EventsController < ApplicationController
     if @event.save
       redirect_to show_path
     else
-      flash.now[:alert] = 'Event was not built'
+      flash.now[:alert] = "Event was not built"
     end
   end
 
   def attend
     current_user.attended_events << Event.find(params[:id])
     if current_user.save
-      flash[:notice] = 'You are now attending the event'
+      flash[:notice] = "You are now attending the event"
       redirect_to show_path
     else
       flash[:alert] = "Event didn't save"

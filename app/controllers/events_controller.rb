@@ -25,7 +25,6 @@ class EventsController < ApplicationController
 
   def attend
     current_user.attended_events << Event.find(params[:id])
-    Rails.logger.debug "DEBUG: HENLOOOOO!!!" if Rails.logger.debug?
     if current_user.save
       flash[:notice] = 'You are now attending the event'
       redirect_to show_path

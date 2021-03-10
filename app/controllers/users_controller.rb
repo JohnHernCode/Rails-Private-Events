@@ -15,9 +15,11 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      puts 'user saved'
       flash[:notice] = "User #{@user.username} was created"
       redirect_to root_path
     else
+      puts 'user not saved'
       flash.now[:alert] = 'User was not created'
     end
   end

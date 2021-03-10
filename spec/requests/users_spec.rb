@@ -14,7 +14,6 @@ RSpec.describe "Users", type: :request do
     let(:user) { FactoryBot.create(:user) }
     it "redirects to root path" do
       post '/users', params: { user: FactoryBot.attributes_for(:user) }
-      puts response.body
       expect(response).to redirect_to(root_path)
       expect(flash[:notice]).to be_present
     end

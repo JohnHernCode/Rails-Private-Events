@@ -94,4 +94,8 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+
+def sign_in_as(name)
+  post '/login', params: { sig: users(name).perishable_signature }
+end
 end

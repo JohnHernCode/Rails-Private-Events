@@ -15,8 +15,11 @@ class EventsController < ApplicationController
   end
 
   def create
+    puts 'WE ARE AT THE BEGINNING'
     @event = current_user.created_events.build(event_params)
+    puts 'we are there not here'
     if @event.save
+      flash[:notice] = 'Event was created'
       redirect_to show_path
     else
       flash.now[:alert] = 'Event was not built'

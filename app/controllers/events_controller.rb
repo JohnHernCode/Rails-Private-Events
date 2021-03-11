@@ -15,9 +15,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    puts 'WE ARE AT THE BEGINNING'
     @event = current_user.created_events.build(event_params)
-    puts 'we are there not here'
     if @event.save
       flash[:notice] = 'Event was created'
       redirect_to show_path
@@ -27,7 +25,9 @@ class EventsController < ApplicationController
   end
 
   def attend
-    current_user.attended_events << Event.find(params[:id])
+    inserted_event = Event.find(params[:id])
+    current_user.attended_events << inserted_event
+
     if current_user.save
       flash[:notice] = 'You are now attending the event'
       redirect_to show_path

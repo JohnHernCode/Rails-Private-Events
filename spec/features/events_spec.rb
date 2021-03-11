@@ -44,15 +44,26 @@ RSpec.feature "Events", type: :feature do
 
   end
 
-  context 'create new attend' do
-    scenario 'should succeed' do
-      
-    end
-    
-    scenario 'should fail' do
-      
+  context 'create new attend', :focus => true do
+
+    before(:each) do
+      click_button 'Create'
+      within '#new_event' do
+        fill_in 'description', with: 'Party Time!'
+        fill_in 'date', with: "2021-03-10"
+      end
+
+      find('#create_event').click
     end
 
+    scenario 'should succeed' do
+      visit "/events/#{Event.last[:id]}"
+      click_button 'Attend'
+      expect(page).to have_content('You are now attending the event')
+      expect(page.current_path).to eq(show_path)
+      expect(Attendance.last[:attended_event_id]).to eq(Event.last[:id])
+      expect(Attendance.last[:event_attendee_id]).to eq(User.last[:id])
+    end
   end
 
 end

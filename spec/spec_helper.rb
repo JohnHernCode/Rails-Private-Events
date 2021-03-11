@@ -93,9 +93,4 @@ RSpec.configure do |config|
   # test failures related to randomization by passing the same `--seed` value
   # as the one that triggered the failure.
   # Kernel.srand config.seed
-
-
-def sign_in_as(name)
-  post '/login', params: { sig: users(name).perishable_signature }
-end
 end

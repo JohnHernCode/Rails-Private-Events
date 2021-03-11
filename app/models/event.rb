@@ -1,4 +1,6 @@
 class Event < ApplicationRecord
+  validates_presence_of :description
+  validates_presence_of :date
   scope :past, -> { where('date < ?', Time.now) }
   scope :future, -> { where('date > ?', Time.now) }
 

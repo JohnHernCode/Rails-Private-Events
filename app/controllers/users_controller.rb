@@ -20,7 +20,8 @@ class UsersController < ApplicationController
       redirect_to root_path
     else
       puts 'user not saved'
-      flash.now[:alert] = 'User was not created'
+      flash[:alert] = 'User was not created'
+      redirect_to new_user_path
     end
   end
 

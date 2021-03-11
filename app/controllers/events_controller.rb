@@ -26,16 +26,24 @@ class EventsController < ApplicationController
 
   def attend
 
-    begin
-      inserted_event = Event.find(params[:id])
-      current_user.attended_events << inserted_event
-      if current_user.save
-        flash[:notice] = 'You are now attending the event'
-        redirect_to show_path
+    event = Event.find(params[:id])
+
+    event.attendees.each.map do | attendee |
+      if attendee[:id] == current_user[:id]
+        flash[:alert] = "#{current_user[:username]} is already attending the event"
+        return redirect_to request.referrer
       end
-    rescue
-      flash[:alert] = "You are already attending this event"
-      redirect_to root_path
+    end
+    
+
+    current_user.attended_events << event
+
+    if current_user.save
+      flash[:notice] = 'You are now attending the event'
+      redirect_to show_path
+    else
+      flash[:alert] = "Event didn't save"
+      redirect_to request.referrer
     end
   end
 

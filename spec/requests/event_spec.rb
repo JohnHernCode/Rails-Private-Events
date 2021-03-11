@@ -14,7 +14,7 @@ RSpec.describe "Events", type: :request do
     let(:event) { FactoryBot.create(:event) }
     let(:current_user) { FactoryBot.create(:user) }
     it "redirects to show path" do
-      helper.sign_in_as 'david'
+      sign_in_as 'david'
       post '/event', params: { event: FactoryBot.attributes_for(:event) }
       # puts response.body
       expect(response).to redirect_to(show_path)

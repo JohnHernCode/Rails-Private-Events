@@ -1,3 +1,4 @@
+# rubocop:disable Metrics/BlockLength
 require 'rails_helper'
 
 RSpec.feature 'Events', type: :feature do
@@ -61,3 +62,4 @@ RSpec.feature 'Events', type: :feature do
     end
   end
 end
+# rubocop:enable Metrics/BlockLength

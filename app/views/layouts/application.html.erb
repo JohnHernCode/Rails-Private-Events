@@ -13,16 +13,7 @@
   </head>
 
   <body>
-    <% if flash.now[:alert] %>
-    <div class='notification is-danger global-notification'>
-      <p class='alert'><%= alert %> </p>
-    </div>
-    <% elsif flash.now[:notice] %>
-    <div class='notification is-info global-notification'>
-      <p class='notice'><%= notice %> </p>
-    </div>
-    <%else%>
-    <%end%>
+    <%= flasher(flash) %>
     <%= render :partial => 'layouts/navbar' %>
     <%= yield %>
   </body>

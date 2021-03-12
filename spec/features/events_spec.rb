@@ -41,7 +41,7 @@ RSpec.feature 'Events', type: :feature do
     end
   end
 
-  context 'create new attend', focus: true do
+  context 'create new attend' do
     before(:each) do
       click_button 'Create'
       within '#new_event' do

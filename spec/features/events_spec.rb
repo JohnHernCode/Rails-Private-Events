@@ -53,7 +53,6 @@ RSpec.feature 'Events', type: :feature do
     end
 
     scenario 'should succeed' do
-
       creator = User.new(username: 'creator')
       creator.save
 

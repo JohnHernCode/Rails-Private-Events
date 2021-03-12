@@ -8,12 +8,11 @@ module EventHelper
   end
 
   def show_events_loop
-    html_values = ""
+    html_values = ''
     @event.attendees.each do |person|
       text = person.username
       html_values << (content_tag :li, text)
     end
     html_values.html_safe
   end
-
 end

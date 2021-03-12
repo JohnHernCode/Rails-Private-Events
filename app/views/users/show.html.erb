@@ -2,35 +2,17 @@
 <h3>Events I Created</h3>
 
 <ul>
-  <!-- <% @user.created_events.each do |event|%>
-  <li>
-    <span><%= link_to event.description, event %></span>
-    <span><%= event.date %></span>
-  </li>
-  <% end %>   -->
-  <%= created_event_user %>
+  <%= event_home(@user.created_events) %>
  </ul>
 
  <h3>Events I am attending</h3>
 
  <ul>
-  <!-- <% @attended_events_upcoming.each do |event|%>
-  <li>
-    <span><%= link_to event.description, event %></span>
-    <span><%= event.date %></span>
-  </li>
-  <% end %>   -->
-  <%= atttending_future_user %>
+  <%= event_home(@attended_events_upcoming) %>
  </ul>
 
  <h3>Events I already attended</h3>
 
  <ul>
-  <!-- <% @attended_events_past.each do |event|%>
-  <li>
-    <span><%= link_to event.description, event %></span>
-    <span><%= event.date %></span>
-  </li>
-  <% end %>   -->
-  <%= attending_past_user %>
+  <%= event_home(@attended_events_past) %>
  </ul>

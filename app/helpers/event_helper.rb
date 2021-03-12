@@ -1,8 +1,10 @@
 module EventHelper
-  def event_button
-    if logged_in? # needs && not creator && not past event
-      button_to 'Attend', action: :attend
-    end
+  def event_button(event, user)
+    return unless logged_in?
+    return if event[:creator_id] == user[:id]
+    return if event[:date] < Time.zone.now
+
+    button_to 'Attend', action: :attend
   end
 
   def show_events_loop
@@ -13,4 +15,5 @@ module EventHelper
     end
     html_values.html_safe
   end
+
 end

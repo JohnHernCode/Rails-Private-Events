@@ -1,20 +1,13 @@
-
-
-
-
 <span><%= @event.description %>: by <%= @event.creator.username %></span>
 <span><%= @event.date %></span>
 
-<%= event_button %>
+<%= event_button(@event, current_user) %>
 
 <br/>
 
 
 <h6>Who's Coming?</h6>
 <ul>
-<!--<% @event.attendees.each do |person|%>
-  <li><%= person.username %></li>
-<%end%>-->
 <%= show_events_loop %> 
 </ul>
 

@@ -9,7 +9,7 @@ RSpec.feature 'Users', type: :feature do
   context 'Validate presence of username' do
     scenario 'should succeed' do
       within '.simple_form' do
-        fill_in 'user_username', with: 'clownman'
+        fill_in 'user_username', with: 'clownsman'
       end
       click_button 'Create'
       expect(page).to have_content('was created')

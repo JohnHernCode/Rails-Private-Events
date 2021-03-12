@@ -53,12 +53,20 @@ RSpec.feature 'Events', type: :feature do
     end
 
     scenario 'should succeed' do
-      visit "/events/#{Event.last[:id]}"
+
+      creator = User.new(username: 'creator')
+      creator.save
+
+      event = creator.created_events.build(description: 'HENLOOOO', date: Time.now + 1.week)
+      event.save
+
+      visit "/events/#{event[:id]}"
+
       click_button 'Attend'
       expect(page).to have_content('You are now attending the event')
       expect(page.current_path).to eq(show_path)
       expect(Attendance.last[:attended_event_id]).to eq(Event.last[:id])
-      expect(Attendance.last[:event_attendee_id]).to eq(User.last[:id])
+      expect(Attendance.last[:event_attendee_id]).to eq(User.where(username: 'clownman').last[:id])
     end
   end
 end

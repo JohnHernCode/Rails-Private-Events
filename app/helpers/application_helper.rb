@@ -21,10 +21,10 @@ module ApplicationHelper
     end
   end
 
-  def nav_buttons
+  def nav_buttons(user)
     html_code = ''
     if logged_in?
-      html_code << ('<span style="padding-right: 10px;">Hi! "<%= current_user.username.upcase %>"</span>')
+      html_code << ("<span style='padding-right: 10px;'>Hi! ' #{user.username.upcase} '</span>")
       html_code << (button_to "Logout", '/login', method: "delete")
       html_code << (button_to "Create", '/event', method: :get)
       html_code << (button_to "My Events", '/show', method: :get)

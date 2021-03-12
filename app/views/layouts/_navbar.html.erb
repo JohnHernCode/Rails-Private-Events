@@ -1,14 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <span style="padding-right: 10px;"><%= link_to "Home", root_path %></span>
   
-  <% if logged_in? %>
-  <span style="padding-right: 10px;">Hi! "<%= current_user.username.upcase %>"</span>
-  <%= button_to "Logout", '/login', method: "delete" %>
-  <%= button_to "Create", '/event', method: :get %>
-  <%= button_to "My Events", '/show', method: :get %>
-  <%else%>
-  <%= button_to "Login", '/login', method: :get %>
-  <%= button_to "Sign Up", new_user_path, method: :get %>
-  <%end%>
+  <%= nav_buttons(current_user) %>
 
 </nav>

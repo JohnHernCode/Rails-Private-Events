@@ -25,16 +25,14 @@ class EventsController < ApplicationController
   end
 
   def attend
-
     event = Event.find(params[:id])
 
-    event.attendees.each.map do | attendee |
+    event.attendees.each.map do |attendee|
       if attendee[:id] == current_user[:id]
         flash[:alert] = "#{current_user[:username]} is already attending the event"
         return redirect_to request.referrer
       end
     end
-    
 
     current_user.attended_events << event
 

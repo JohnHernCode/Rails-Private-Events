@@ -32,7 +32,7 @@ RSpec.feature 'Users', type: :feature do
       expect(page).to have_content('was created')
     end
     scenario 'should fail' do
-      User.new(username:"topman").save
+      User.new(username: 'topman').save
       within '.simple_form' do
         fill_in 'user_username', with: 'topman'
       end
@@ -46,7 +46,7 @@ RSpec.feature 'Users', type: :feature do
         fill_in 'user_username', with: 'ghostman'
       end
       click_button 'Create'
-      expect(page).to have_content('was created')      
+      expect(page).to have_content('was created')
     end
     scenario 'should fail' do
       within '.simple_form' do

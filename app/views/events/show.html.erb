@@ -5,19 +5,16 @@
 <span><%= @event.description %>: by <%= @event.creator.username %></span>
 <span><%= @event.date %></span>
 
-<% if logged_in? %>
-<%= button_to 'Attend', action: :attend %>
- <%end%>
+<%= event_button %>
 
 <br/>
 
-<% if @event.attendees.empty?%>
-<% else %>
 
 <h6>Who's Coming?</h6>
 <ul>
-<% @event.attendees.each do |person|%>
+<!--<% @event.attendees.each do |person|%>
   <li><%= person.username %></li>
-<%end%>
+<%end%>-->
+<%= show_events_loop %> 
 </ul>
-<%end%>
+

@@ -23,9 +23,6 @@ Bootstrap (CDN)
 
 ## Getting Started
 
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
-
 To get a local copy up and running follow these simple example steps.
 
 ### Install
@@ -40,8 +37,10 @@ run 'rails db:migrate'
 ```
 run 'rails s'
 In your browser, go to [localhost:3000](http://127.0.0.1:3000)
-To create a user, click the 'Sign up' button in the navbar. Write a username and click on 'Create'
-To create a user session, click the 'Login' button in the navbar. Write a username and click on 'Login'
+To create a user, click the 'Sign up' button in the navbar. 
+Write a username and click on 'Create'
+To create a user session, click the 'Login' button in the navbar. 
+Write a username and click on 'Login'
 To create an Event, click on 'Create' in the navbar after logging in
 In the main page, you can click on any event to see it's contents
 You can check your own events by clicking the 'My Events' button

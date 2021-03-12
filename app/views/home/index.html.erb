@@ -3,21 +3,23 @@
  <h3>Future events</h3>
 
  <ul>
-  <% Event.future.each do |event|%>
+  <!-- <% Event.future.each do |event|%>
   <li>
     <span><%= link_to event.description, event %></span>
     <span><%= event.date %></span>
   </li>
-  <% end %>  
+  <% end %>   -->
+  <%= future_event_home %>
  </ul>
 
  <h3>Past events</h3>
 
  <ul>
-  <% Event.past.each do |event|%>
+  <!-- <% Event.past.each do |event|%>
   <li>
     <span><%= link_to event.description, event %></span>
     <span><%= event.date %></span>
   </li>
-  <% end %>  
+  <% end %>   -->
+  <%= past_event_home %>
  </ul>

@@ -1,0 +1,6 @@
+<h1>Login</h1>
+
+<%= simple_form_for login_path do |f| %>
+  <%= text_field_tag :username %>
+  <%= f.button :submit, 'Login User' %>
+<% end %>

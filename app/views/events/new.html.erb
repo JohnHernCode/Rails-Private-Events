@@ -1,0 +1,7 @@
+<h1>New Event</h1>
+
+<%= simple_form_for @event do |f| %>
+<%= text_field_tag :description %>
+<%= date_field_tag :date %>
+<%= f.button :submit, :id => 'create_event', :value =>'Create' %>
+<% end %>

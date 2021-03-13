@@ -1,0 +1,18 @@
+
+<h3>Events I Created</h3>
+
+<ul>
+  <%= event_home(@user.created_events) %>
+ </ul>
+
+ <h3>Events I am attending</h3>
+
+ <ul>
+  <%= event_home(@attended_events_upcoming) %>
+ </ul>
+
+ <h3>Events I already attended</h3>
+
+ <ul>
+  <%= event_home(@attended_events_past) %>
+ </ul>
